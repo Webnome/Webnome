@@ -4,11 +4,11 @@ import Link from "next/link";
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Blog - WEBNOME Tech Solution',
+  title: 'Blog - Webnome Tech Solution',
   description: 'Insights, trends, and expert opinions on technology, marketing, and business growth.',
   keywords: 'tech blog, AI insights, digital marketing, web development blog',
   openGraph: {
-    title: 'Blog - WEBNOME Tech Solution',
+    title: 'Blog - Webnome Tech Solution',
     description: 'Latest insights on technology and business',
     type: 'website',
   },
@@ -69,7 +69,7 @@ export default function BlogPage() {
   return (
     <main className="min-h-screen bg-white">
       <Navbar />
-      
+
       {/* Hero Section */}
       <section className="pt-32 pb-20 bg-gradient-to-br from-white via-blue-50 to-orange-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -108,15 +108,15 @@ export default function BlogPage() {
                     </span>
                     <span className="text-gray-500 text-sm">{post.readTime}</span>
                   </div>
-                  
+
                   <h2 className="text-2xl font-bold mb-3 text-gray-900 group-hover:text-[#00AEEF] transition-colors">
                     {post.title}
                   </h2>
-                  
+
                   <p className="text-gray-600 mb-4 leading-relaxed">
                     {post.excerpt}
                   </p>
-                  
+
                   <div className="flex items-center gap-2 text-gray-500 text-sm">
                     <span>{post.date}</span>
                     <span>•</span>

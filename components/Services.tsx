@@ -1,49 +1,62 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import { Code2, Globe, Smartphone, Cloud, Bot, Shield, Megaphone, Server } from 'lucide-react';
 
 const services = [
   {
-    icon: '💻',
+    icon: Code2,
     title: 'Custom Software Development',
-    description: 'Tailored solutions designed specifically for your business needs. From concept to deployment, we build scalable and robust applications.',
-    color: 'from-[#00AEEF] to-cyan-400'
+    description: 'Tailored solutions designed specifically for your business needs. From concept to deployment, we build scalable applications.',
+    gradient: 'from-primary-blue to-cyan-400'
   },
   {
-    icon: '🌐',
+    icon: Globe,
     title: 'Web Application Development',
-    description: 'Modern, responsive web applications built with cutting-edge technologies. We create engaging user experiences that drive results.',
-    color: 'from-blue-500 to-[#00AEEF]'
+    description: 'Modern, responsive web applications built with cutting-edge technologies. Engaging user experiences that drive results.',
+    gradient: 'from-blue-500 to-primary-blue'
   },
   {
-    icon: '📱',
+    icon: Smartphone,
     title: 'Mobile App Development',
-    description: 'Native and cross-platform mobile applications for iOS and Android. We deliver apps that users love and businesses rely on.',
-    color: 'from-[#F7931E] to-orange-500'
+    description: 'Native and cross-platform mobile applications for iOS and Android. Apps that users love and businesses rely on.',
+    gradient: 'from-primary-orange to-orange-500'
   },
   {
-    icon: '☁️',
-    title: 'Cloud Solutions',
-    description: 'Leverage the power of cloud computing with our scalable infrastructure solutions. Modernize your business with cloud migration and optimization.',
-    color: 'from-purple-500 to-pink-500'
+    icon: Server,
+    title: 'Backend & API Development',
+    description: 'Robust backend systems and RESTful/GraphQL APIs. Scalable architecture that powers your applications.',
+    gradient: 'from-emerald-500 to-teal-500'
   },
   {
-    icon: '🤖',
+    icon: Cloud,
+    title: 'Cloud & IT Infrastructure',
+    description: 'Cloud computing solutions with AWS, Azure, and GCP. Modernize your business with cloud migration and DevOps.',
+    gradient: 'from-purple-500 to-pink-500'
+  },
+  {
+    icon: Bot,
     title: 'AI & Machine Learning',
-    description: 'Intelligent automation and AI-powered solutions to transform your business processes and unlock new possibilities.',
-    color: 'from-[#00AEEF] to-[#F7931E]'
+    description: 'Intelligent automation and AI-powered solutions. Transform your business processes with cutting-edge ML.',
+    gradient: 'from-primary-blue to-primary-orange'
   },
   {
-    icon: '🔒',
+    icon: Megaphone,
+    title: 'Digital Marketing',
+    description: 'Data-driven marketing strategies. SEO, PPC, social media, and content marketing to grow your online presence.',
+    gradient: 'from-pink-500 to-rose-500'
+  },
+  {
+    icon: Shield,
     title: 'Cybersecurity Solutions',
-    description: 'Protect your digital assets with comprehensive security solutions. We implement robust security measures to keep your data safe.',
-    color: 'from-red-500 to-[#F7931E]'
+    description: 'Protect your digital assets with comprehensive security solutions. Robust measures to keep your data safe.',
+    gradient: 'from-red-500 to-primary-orange'
   },
 ];
 
 export default function Services() {
   return (
-    <section id="services" className="py-24 bg-white">
+    <section id="services" className="py-24 bg-[var(--background-secondary)]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <motion.div
@@ -53,53 +66,64 @@ export default function Services() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <span className="inline-block px-4 py-2 mb-4 bg-gradient-to-r from-[#00AEEF] to-[#F7931E] bg-clip-text text-transparent font-bold text-sm uppercase tracking-wider">
-            Our Services
+          <span className="inline-flex items-center gap-2 px-4 py-2 mb-4 bg-gradient-to-r from-primary-blue/10 to-primary-orange/10 dark:from-primary-blue/20 dark:to-primary-orange/20 rounded-full border border-[var(--card-border)]">
+            <span className="gradient-text font-semibold text-sm uppercase tracking-wider">
+              Our Services
+            </span>
           </span>
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900">
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-[var(--foreground)]">
             Solutions for Every
-            <span className="bg-gradient-to-r from-[#00AEEF] to-[#F7931E] bg-clip-text text-transparent"> Need</span>
+            <span className="gradient-text"> Need</span>
           </h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            We provide comprehensive software solutions to help your business thrive in the digital age.
+          <p className="text-xl text-[var(--foreground-secondary)] max-w-2xl mx-auto">
+            Comprehensive software solutions to help your business thrive in the digital age.
           </p>
         </motion.div>
 
         {/* Services Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {services.map((service, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="group relative p-8 bg-gradient-to-br from-white to-gray-50 rounded-3xl hover:shadow-2xl transition-all duration-300 border border-gray-100"
-            >
-              {/* Gradient Background Effect */}
-              <div className={`absolute inset-0 bg-gradient-to-br ${service.color} opacity-0 group-hover:opacity-5 rounded-3xl transition-opacity duration-300`} />
-              
-              {/* Icon */}
-              <div className="text-6xl mb-6 transform group-hover:scale-110 transition-transform duration-300">
-                {service.icon}
-              </div>
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {services.map((service, index) => {
+            const Icon = service.icon;
+            return (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                className="group relative p-6 bg-[var(--card-bg)] rounded-2xl border border-[var(--card-border)] hover:border-primary-blue/50 transition-all duration-300 card-hover"
+              >
+                {/* Gradient Background Effect on Hover */}
+                <div className={`absolute inset-0 bg-gradient-to-br ${service.gradient} opacity-0 group-hover:opacity-5 rounded-2xl transition-opacity duration-300`} />
 
-              {/* Content */}
-              <h3 className="text-2xl font-bold mb-4 text-gray-900 group-hover:text-[#00AEEF] transition-colors duration-300">
-                {service.title}
-              </h3>
-              <p className="text-gray-600 leading-relaxed">
-                {service.description}
-              </p>
+                {/* Icon */}
+                <div className={`w-14 h-14 mb-5 rounded-xl bg-gradient-to-br ${service.gradient} flex items-center justify-center text-white group-hover:scale-110 transition-transform duration-300 shadow-lg`}>
+                  <Icon size={26} strokeWidth={1.5} />
+                </div>
 
-              {/* Hover Effect Border */}
-              <div className={`absolute top-0 left-0 right-0 h-1 bg-gradient-to-r ${service.color} rounded-t-3xl transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left`} />
-            </motion.div>
-          ))}
+                {/* Content */}
+                <h3 className="text-lg font-bold mb-3 text-[var(--foreground)] group-hover:text-primary-blue transition-colors duration-300">
+                  {service.title}
+                </h3>
+                <p className="text-sm text-[var(--foreground-secondary)] leading-relaxed">
+                  {service.description}
+                </p>
+
+                {/* Hover Arrow */}
+                <div className="mt-4 flex items-center text-primary-blue opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-x-[-10px] group-hover:translate-x-0">
+                  <span className="text-sm font-medium">Learn more</span>
+                  <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
+                </div>
+
+                {/* Top Gradient Border on Hover */}
+                <div className={`absolute top-0 left-0 right-0 h-1 bg-gradient-to-r ${service.gradient} rounded-t-2xl transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left`} />
+              </motion.div>
+            );
+          })}
         </div>
       </div>
     </section>
   );
 }
-
-

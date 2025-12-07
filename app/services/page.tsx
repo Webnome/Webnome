@@ -3,11 +3,11 @@ import Footer from "@/components/Footer";
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Our Services - WEBNOME Tech Solution',
+  title: 'Our Services - Webnome Tech Solution',
   description: 'Comprehensive technology solutions including Digital Marketing, Web & Mobile Development, UI/UX Design, AI & Data Science services.',
   keywords: 'web development, mobile apps, UI/UX design, digital marketing, AI, data science, cloud solutions',
   openGraph: {
-    title: 'Our Services - WEBNOME Tech Solution',
+    title: 'Our Services - Webnome Tech Solution',
     description: 'Comprehensive technology solutions for your business',
     type: 'website',
   },
@@ -154,7 +154,7 @@ export default function ServicesPage() {
   return (
     <main className="min-h-screen bg-white">
       <Navbar />
-      
+
       {/* Hero Section */}
       <section className="pt-32 pb-20 bg-gradient-to-br from-white via-blue-50 to-orange-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -175,7 +175,7 @@ export default function ServicesPage() {
         <section key={categoryIndex} className="py-20 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2 className="text-4xl font-bold mb-12 text-gray-900">{category.category}</h2>
-            
+
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {category.services.map((service, index) => (
                 <div

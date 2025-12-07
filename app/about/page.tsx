@@ -3,11 +3,11 @@ import Footer from "@/components/Footer";
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'About Us - WEBNOME Tech Solution',
-  description: 'Learn about WEBNOME, our mission, values, and dedicated team of technology experts.',
+  title: 'About Us - Webnome Tech Solution',
+  description: 'Learn about Webnome, our mission, values, and dedicated team of technology experts.',
   keywords: 'about webnome, tech company, our team, company values',
   openGraph: {
-    title: 'About Us - WEBNOME Tech Solution',
+    title: 'About Us - Webnome Tech Solution',
     description: 'Learn about our mission and team',
     type: 'website',
   },
@@ -67,14 +67,14 @@ export default function AboutPage() {
   return (
     <main className="min-h-screen bg-white">
       <Navbar />
-      
+
       {/* Hero Section */}
       <section className="pt-32 pb-20 bg-gradient-to-br from-white via-blue-50 to-orange-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-5xl md:text-6xl font-bold mb-6">
             <span className="text-gray-900">About</span>{" "}
             <span className="bg-gradient-to-r from-[#00AEEF] to-[#F7931E] bg-clip-text text-transparent">
-              WEBNOME
+              Webnome
             </span>
           </h1>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -90,12 +90,12 @@ export default function AboutPage() {
             <div>
               <h2 className="text-4xl font-bold mb-6 text-gray-900">Our Mission</h2>
               <p className="text-lg text-gray-600 mb-4 leading-relaxed">
-                To empower businesses with cutting-edge technology solutions that drive growth, 
+                To empower businesses with cutting-edge technology solutions that drive growth,
                 innovation, and sustainable success in the digital age.
               </p>
               <p className="text-lg text-gray-600 leading-relaxed">
-                We combine expertise in artificial intelligence, data science, web development, 
-                and digital marketing to deliver comprehensive solutions that transform how businesses 
+                We combine expertise in artificial intelligence, data science, web development,
+                and digital marketing to deliver comprehensive solutions that transform how businesses
                 operate and compete.
               </p>
             </div>
@@ -117,7 +117,7 @@ export default function AboutPage() {
       <section className="py-20 bg-gradient-to-br from-gray-50 via-white to-blue-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-4xl font-bold mb-12 text-center text-gray-900">Our Values</h2>
-          
+
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {values.map((value, index) => (
               <div
@@ -137,7 +137,7 @@ export default function AboutPage() {
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-4xl font-bold mb-12 text-center text-gray-900">Our Team</h2>
-          
+
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {team.map((member, index) => (
               <div

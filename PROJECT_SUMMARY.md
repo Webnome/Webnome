@@ -1,4 +1,4 @@
-# WEBNOME Tech Solution - Website Project Summary
+# Webnome Tech Solution - Website Project Summary
 
 ## 🚀 Project Overview
 
@@ -205,7 +205,7 @@ To integrate:
 
 ## 📄 License
 
-Copyright © 2024 WEBNOME Tech Solution. All rights reserved.
+Copyright © 2024 Webnome Tech Solution. All rights reserved.
 
 ---
 

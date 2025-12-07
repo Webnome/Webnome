@@ -4,10 +4,13 @@ import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
+import { Sun, Moon, Menu, X } from 'lucide-react';
+import { useTheme } from './ThemeProvider';
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const { theme, toggleTheme } = useTheme();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -31,7 +34,7 @@ export default function Navbar() {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled
-        ? 'bg-white/80 backdrop-blur-lg shadow-lg'
+        ? 'bg-[var(--nav-bg)] backdrop-blur-xl shadow-lg border-b border-[var(--nav-border)]'
         : 'bg-transparent'
         }`}
     >
@@ -42,16 +45,12 @@ export default function Navbar() {
             <div className="relative w-50">
               <Image
                 src="/logo.webp"
-                alt="WEBNOME Logo"
+                alt="Webnome Logo"
                 width={150}
                 height={50}
                 className="object-contain"
               />
             </div>
-            {/* <span className="text-xl font-bold">
-              <span className="text-[#00AEEF]">WEB</span>
-              <span className="text-[#F7931E]">NOME</span>
-            </span> */}
           </Link>
 
           {/* Desktop Navigation */}
@@ -60,47 +59,59 @@ export default function Navbar() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-gray-700 hover:text-[#00AEEF] transition-colors duration-200 font-medium"
+                className="text-[var(--foreground-secondary)] hover:text-primary-blue transition-colors duration-200 font-medium"
               >
                 {link.label}
               </Link>
             ))}
+
+            {/* Theme Toggle */}
+            <button
+              onClick={toggleTheme}
+              className="p-2 rounded-full bg-[var(--card-bg)] border border-[var(--card-border)] hover:border-primary-blue transition-all duration-300 hover:scale-110"
+              aria-label="Toggle theme"
+            >
+              {theme === 'dark' ? (
+                <Sun className="w-5 h-5 text-primary-orange" />
+              ) : (
+                <Moon className="w-5 h-5 text-primary-blue" />
+              )}
+            </button>
+
             <Link
               href="#contact"
-              className="bg-gradient-to-r from-[#00AEEF] to-[#F7931E] text-white px-6 py-2 rounded-full font-medium hover:shadow-lg hover:scale-105 transition-all duration-300"
+              className="bg-gradient-to-r from-primary-blue to-primary-orange text-white px-6 py-2.5 rounded-full font-medium hover:shadow-glow-gradient hover:scale-105 transition-all duration-300"
             >
               Get Started
             </Link>
           </div>
 
           {/* Mobile Menu Button */}
-          <button
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="md:hidden text-gray-700"
-          >
-            <svg
-              className="w-6 h-6"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
+          <div className="flex items-center gap-4 lg:hidden">
+            {/* Theme Toggle Mobile */}
+            <button
+              onClick={toggleTheme}
+              className="p-2 rounded-full bg-[var(--card-bg)] border border-[var(--card-border)]"
+              aria-label="Toggle theme"
+            >
+              {theme === 'dark' ? (
+                <Sun className="w-5 h-5 text-primary-orange" />
+              ) : (
+                <Moon className="w-5 h-5 text-primary-blue" />
+              )}
+            </button>
+
+            <button
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className="text-[var(--foreground)] p-2"
             >
               {isMobileMenuOpen ? (
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M6 18L18 6M6 6l12 12"
-                />
+                <X className="w-6 h-6" />
               ) : (
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M4 6h16M4 12h16M4 18h16"
-                />
+                <Menu className="w-6 h-6" />
               )}
-            </svg>
-          </button>
+            </button>
+          </div>
         </div>
       </div>
 
@@ -111,7 +122,7 @@ export default function Navbar() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-white border-t"
+            className="lg:hidden bg-[var(--nav-bg)] backdrop-blur-xl border-t border-[var(--nav-border)]"
           >
             <div className="px-4 py-4 space-y-4">
               {navLinks.map((link) => (
@@ -119,7 +130,7 @@ export default function Navbar() {
                   key={link.href}
                   href={link.href}
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="block text-gray-700 hover:text-[#00AEEF] transition-colors duration-200 font-medium"
+                  className="block text-[var(--foreground-secondary)] hover:text-primary-blue transition-colors duration-200 font-medium py-2"
                 >
                   {link.label}
                 </Link>
@@ -127,7 +138,7 @@ export default function Navbar() {
               <Link
                 href="#contact"
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="block bg-gradient-to-r from-[#00AEEF] to-[#F7931E] text-white px-6 py-2 rounded-full font-medium text-center"
+                className="block bg-gradient-to-r from-primary-blue to-primary-orange text-white px-6 py-3 rounded-full font-medium text-center"
               >
                 Get Started
               </Link>
@@ -138,4 +149,3 @@ export default function Navbar() {
     </motion.nav>
   );
 }
-

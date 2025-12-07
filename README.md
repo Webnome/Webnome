@@ -1,4 +1,4 @@
-# WEBNOME Tech Solution - Website
+# Webnome Tech Solution - Website
 
 A modern, responsive website built with Next.js 14, featuring cutting-edge design and technology solutions showcase.
 
@@ -9,7 +9,7 @@ A modern, responsive website built with Next.js 14, featuring cutting-edge desig
 - **Interactive Animations**: Smooth scroll animations using Framer Motion
 - **Performance Optimized**: Built with Next.js for fast loading times
 - **SEO Friendly**: Server-side rendering for better search engine visibility
-- **Brand Colors**: Uses WEBNOME brand colors (Blue #00AEEF & Orange #F7931E)
+- **Brand Colors**: Uses Webnome brand colors (Blue #00AEEF & Orange #F7931E)
 
 ## 🎨 Design Highlights
 
@@ -97,7 +97,7 @@ Update components in the `components/` directory to modify text, services, and f
 
 ## 📄 License
 
-Copyright © 2024 WEBNOME Tech Solution. All rights reserved.
+Copyright © 2024 Webnome Tech Solution. All rights reserved.
 
 ## 📧 Contact
 
@@ -107,6 +107,6 @@ For inquiries, please contact:
 
 ---
 
-Built with ❤️ by WEBNOME Tech Solution
+Built with ❤️ by Webnome Tech Solution
 
 
