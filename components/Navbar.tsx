@@ -5,7 +5,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Sun, Moon, Menu, X } from 'lucide-react';
-import { useTheme } from './ThemeProvider';
+import { useTheme } from '@/components/ThemeProvider';
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -24,6 +24,7 @@ export default function Navbar() {
     { href: '/', label: 'Home' },
     { href: '/services', label: 'Services' },
     { href: '/case-studies', label: 'Case Studies' },
+    { href: '/testimonials', label: 'Testimonials' },
     { href: '/about', label: 'About' },
     { href: '/blog', label: 'Blog' },
     { href: '/contact', label: 'Contact' },
@@ -44,7 +45,8 @@ export default function Navbar() {
           <Link href="/" className="flex items-center space-x-2">
             <div className="relative w-50">
               <Image
-                src="/logo.webp"
+                src={theme === 'dark' ? '/logo-night.webp' : '/logo.webp'}
+                // src="/logo.webp"
                 alt="Webnome Logo"
                 width={150}
                 height={50}

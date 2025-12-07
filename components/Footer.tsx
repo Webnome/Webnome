@@ -1,10 +1,13 @@
+'use client';
+
 import Link from 'next/link';
 import Image from 'next/image';
 import { Facebook, Twitter, Linkedin, Instagram, Mail, Phone, MapPin } from 'lucide-react';
+import { useTheme } from '@/components/ThemeProvider';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
-
+  const { theme } = useTheme();
   const services = [
     'Custom Software',
     'Web Development',
@@ -41,7 +44,8 @@ export default function Footer() {
           <div className="lg:col-span-1">
             <Link href="/" className="inline-block mb-6">
               <Image
-                src="/logo.webp"
+                src={theme === 'dark' ? '/logo-night.webp' : '/logo.webp'}
+                // src={'/logo.webp'}
                 alt="Webnome Logo"
                 width={180}
                 height={50}
