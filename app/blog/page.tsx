@@ -1,4 +1,3 @@
-import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Link from "next/link";
 import type { Metadata } from 'next';
@@ -67,60 +66,65 @@ const blogPosts = [
 
 export default function BlogPage() {
   return (
-    <main className="min-h-screen bg-white">
-      <Navbar />
+    <main className="min-h-screen bg-[var(--background)]">
 
       {/* Hero Section */}
-      <section className="pt-32 pb-20 bg-gradient-to-br from-white via-blue-50 to-orange-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <section className="pt-32 pb-20 bg-[var(--background)] relative overflow-hidden">
+        {/* Background gradients */}
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute top-20 -left-32 w-96 h-96 bg-primary-blue/20 dark:bg-primary-blue/30 rounded-full blur-3xl" />
+          <div className="absolute bottom-20 -right-32 w-96 h-96 bg-primary-orange/20 dark:bg-primary-orange/30 rounded-full blur-3xl" />
+        </div>
+
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-5xl md:text-6xl font-bold mb-6">
-            <span className="text-gray-900">Our</span>{" "}
-            <span className="bg-gradient-to-r from-[#00AEEF] to-[#F7931E] bg-clip-text text-transparent">
+            <span className="text-[var(--foreground)]">Our</span>{" "}
+            <span className="gradient-text">
               Blog
             </span>
           </h1>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-xl text-[var(--foreground-secondary)] max-w-3xl mx-auto">
             Insights, trends, and expert opinions on technology, marketing, and business growth
           </p>
         </div>
       </section>
 
       {/* Blog Posts Grid */}
-      <section className="py-20">
+      <section className="py-20 bg-[var(--background)]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {blogPosts.map((post, index) => (
               <Link
                 key={index}
                 href="#"
-                className="group block bg-white rounded-3xl border border-gray-100 overflow-hidden hover:shadow-2xl hover:scale-105 transition-all duration-300"
+                className="group block bg-[var(--card-bg)] rounded-3xl border border-[var(--card-border)] overflow-hidden hover:border-primary-blue/50 hover:shadow-2xl hover:scale-105 transition-all duration-300"
               >
                 {/* Image */}
-                <div className="bg-gradient-to-br from-gray-100 to-gray-200 p-12 text-8xl flex items-center justify-center">
+                <div className="bg-[var(--background-secondary)] p-12 text-8xl flex items-center justify-center">
                   {post.image}
                 </div>
 
                 {/* Content */}
                 <div className="p-8">
                   <div className="flex items-center gap-3 mb-4">
-                    <span className="px-3 py-1 bg-gradient-to-r from-[#00AEEF] to-[#F7931E] text-white text-xs font-semibold rounded-full">
+                    <span className="px-3 py-1 bg-gradient-to-r from-primary-blue to-primary-orange text-white text-xs font-semibold rounded-full">
                       {post.category}
                     </span>
-                    <span className="text-gray-500 text-sm">{post.readTime}</span>
+                    <span className="text-[var(--foreground-secondary)] text-sm">{post.readTime}</span>
                   </div>
 
-                  <h2 className="text-2xl font-bold mb-3 text-gray-900 group-hover:text-[#00AEEF] transition-colors">
+                  <h2 className="text-2xl font-bold mb-3 text-[var(--foreground)] group-hover:text-primary-blue transition-colors">
                     {post.title}
                   </h2>
 
-                  <p className="text-gray-600 mb-4 leading-relaxed">
+                  <p className="text-[var(--foreground-secondary)] mb-4 leading-relaxed">
                     {post.excerpt}
                   </p>
 
-                  <div className="flex items-center gap-2 text-gray-500 text-sm">
+                  <div className="flex items-center gap-2 text-[var(--foreground-secondary)] text-sm">
                     <span>{post.date}</span>
                     <span>•</span>
-                    <span>Read More →</span>
+                    <span className="text-primary-blue">Read More →</span>
                   </div>
                 </div>
               </Link>
@@ -130,7 +134,7 @@ export default function BlogPage() {
       </section>
 
       {/* Newsletter CTA */}
-      <section className="py-24 bg-gradient-to-r from-[#00AEEF] to-[#F7931E]">
+      <section className="py-24 bg-gradient-to-r from-primary-blue to-primary-orange">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
             Stay Updated
@@ -146,7 +150,7 @@ export default function BlogPage() {
             />
             <button
               type="submit"
-              className="px-8 py-4 bg-white text-[#00AEEF] rounded-full font-semibold hover:shadow-xl hover:scale-105 transition-all duration-300"
+              className="px-8 py-4 bg-white text-primary-blue rounded-full font-semibold hover:shadow-xl hover:scale-105 transition-all duration-300"
             >
               Subscribe
             </button>
@@ -158,4 +162,3 @@ export default function BlogPage() {
     </main>
   );
 }
-

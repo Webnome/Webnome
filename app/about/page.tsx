@@ -1,4 +1,3 @@
-import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import type { Metadata } from 'next';
 
@@ -65,46 +64,51 @@ const team = [
 
 export default function AboutPage() {
   return (
-    <main className="min-h-screen bg-white">
-      <Navbar />
+    <main className="min-h-screen bg-[var(--background)]">
 
       {/* Hero Section */}
-      <section className="pt-32 pb-20 bg-gradient-to-br from-white via-blue-50 to-orange-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <section className="pt-32 pb-20 bg-[var(--background)] relative overflow-hidden">
+        {/* Background gradients */}
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute top-20 -left-32 w-96 h-96 bg-primary-blue/20 dark:bg-primary-blue/30 rounded-full blur-3xl" />
+          <div className="absolute bottom-20 -right-32 w-96 h-96 bg-primary-orange/20 dark:bg-primary-orange/30 rounded-full blur-3xl" />
+        </div>
+
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-5xl md:text-6xl font-bold mb-6">
-            <span className="text-gray-900">About</span>{" "}
-            <span className="bg-gradient-to-r from-[#00AEEF] to-[#F7931E] bg-clip-text text-transparent">
+            <span className="text-[var(--foreground)]">About</span>{" "}
+            <span className="gradient-text">
               Webnome
             </span>
           </h1>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-xl text-[var(--foreground-secondary)] max-w-3xl mx-auto">
             Transforming businesses through innovation, creativity, and technology excellence
           </p>
         </div>
       </section>
 
       {/* Mission Section */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-[var(--background)]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="text-4xl font-bold mb-6 text-gray-900">Our Mission</h2>
-              <p className="text-lg text-gray-600 mb-4 leading-relaxed">
+              <h2 className="text-4xl font-bold mb-6 text-[var(--foreground)]">Our Mission</h2>
+              <p className="text-lg text-[var(--foreground-secondary)] mb-4 leading-relaxed">
                 To empower businesses with cutting-edge technology solutions that drive growth,
                 innovation, and sustainable success in the digital age.
               </p>
-              <p className="text-lg text-gray-600 leading-relaxed">
+              <p className="text-lg text-[var(--foreground-secondary)] leading-relaxed">
                 We combine expertise in artificial intelligence, data science, web development,
                 and digital marketing to deliver comprehensive solutions that transform how businesses
                 operate and compete.
               </p>
             </div>
             <div className="relative">
-              <div className="absolute inset-0 bg-gradient-to-r from-[#00AEEF] to-[#F7931E] rounded-3xl blur-3xl opacity-20"></div>
-              <div className="relative bg-gradient-to-br from-white to-gray-50 p-12 rounded-3xl border border-gray-100">
+              <div className="absolute inset-0 bg-gradient-to-r from-primary-blue to-primary-orange rounded-3xl blur-3xl opacity-20"></div>
+              <div className="relative bg-[var(--card-bg)] p-12 rounded-3xl border border-[var(--card-border)]">
                 <div className="text-6xl mb-4">🚀</div>
-                <h3 className="text-2xl font-bold mb-4">Innovation Driven</h3>
-                <p className="text-gray-600">
+                <h3 className="text-2xl font-bold mb-4 text-[var(--foreground)]">Innovation Driven</h3>
+                <p className="text-[var(--foreground-secondary)]">
                   We leverage the latest technologies to solve complex business challenges.
                 </p>
               </div>
@@ -114,19 +118,19 @@ export default function AboutPage() {
       </section>
 
       {/* Values Section */}
-      <section className="py-20 bg-gradient-to-br from-gray-50 via-white to-blue-50">
+      <section className="py-20 bg-[var(--background-secondary)]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl font-bold mb-12 text-center text-gray-900">Our Values</h2>
+          <h2 className="text-4xl font-bold mb-12 text-center text-[var(--foreground)]">Our Values</h2>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {values.map((value, index) => (
               <div
                 key={index}
-                className="text-center p-8 bg-white rounded-3xl border border-gray-100 hover:shadow-xl hover:scale-105 transition-all duration-300"
+                className="text-center p-8 bg-[var(--card-bg)] rounded-3xl border border-[var(--card-border)] hover:border-primary-blue/50 hover:shadow-xl hover:scale-105 transition-all duration-300"
               >
                 <div className="text-6xl mb-4">{value.icon}</div>
-                <h3 className="text-xl font-bold mb-3 text-gray-900">{value.title}</h3>
-                <p className="text-gray-600">{value.description}</p>
+                <h3 className="text-xl font-bold mb-3 text-[var(--foreground)]">{value.title}</h3>
+                <p className="text-[var(--foreground-secondary)]">{value.description}</p>
               </div>
             ))}
           </div>
@@ -134,20 +138,20 @@ export default function AboutPage() {
       </section>
 
       {/* Team Section */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-[var(--background)]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl font-bold mb-12 text-center text-gray-900">Our Team</h2>
+          <h2 className="text-4xl font-bold mb-12 text-center text-[var(--foreground)]">Our Team</h2>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {team.map((member, index) => (
               <div
                 key={index}
-                className="text-center p-8 bg-gradient-to-br from-white to-gray-50 rounded-3xl border border-gray-100 hover:shadow-xl hover:scale-105 transition-all duration-300"
+                className="text-center p-8 bg-[var(--card-bg)] rounded-3xl border border-[var(--card-border)] hover:border-primary-blue/50 hover:shadow-xl hover:scale-105 transition-all duration-300"
               >
                 <div className="text-8xl mb-4">{member.image}</div>
-                <h3 className="text-2xl font-bold mb-2 text-gray-900">{member.name}</h3>
-                <p className="text-[#00AEEF] font-semibold mb-2">{member.role}</p>
-                <p className="text-gray-600 text-sm">{member.description}</p>
+                <h3 className="text-2xl font-bold mb-2 text-[var(--foreground)]">{member.name}</h3>
+                <p className="text-primary-blue font-semibold mb-2">{member.role}</p>
+                <p className="text-[var(--foreground-secondary)] text-sm">{member.description}</p>
               </div>
             ))}
           </div>
@@ -155,7 +159,7 @@ export default function AboutPage() {
       </section>
 
       {/* Stats Section */}
-      <section className="py-20 bg-gradient-to-r from-[#00AEEF] to-[#F7931E]">
+      <section className="py-20 bg-gradient-to-r from-primary-blue to-primary-orange">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center">
             <div>
@@ -182,4 +186,3 @@ export default function AboutPage() {
     </main>
   );
 }
-

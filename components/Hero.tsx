@@ -6,7 +6,7 @@ import Navbar from './Navbar';
 export default function Hero() {
   return (
     <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[var(--background)]">
-      <Navbar />
+      {/* <Navbar /> */}
 
       {/* Animated Background Elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -153,7 +153,7 @@ export default function Hero() {
       </div>
 
       {/* Scroll Indicator */}
-      <motion.div
+      {/* <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1 }}
@@ -166,7 +166,7 @@ export default function Hero() {
             className="w-1.5 h-3 bg-gradient-to-b from-primary-blue to-primary-orange rounded-full mt-2"
           />
         </div>
-      </motion.div>
+      </motion.div> */}
     </section>
   );
 }

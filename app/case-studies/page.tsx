@@ -1,6 +1,5 @@
 'use client';
 
-import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { motion } from 'framer-motion';
 
@@ -65,26 +64,31 @@ const caseStudies = [
 
 export default function CaseStudiesPage() {
   return (
-    <main className="min-h-screen bg-white">
-      <Navbar />
-      
+    <main className="min-h-screen bg-[var(--background)]">
+
       {/* Hero Section */}
-      <section className="pt-32 pb-20 bg-gradient-to-br from-white via-blue-50 to-orange-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <section className="pt-32 pb-20 bg-[var(--background)] relative overflow-hidden">
+        {/* Background gradients */}
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute top-20 -left-32 w-96 h-96 bg-primary-blue/20 dark:bg-primary-blue/30 rounded-full blur-3xl" />
+          <div className="absolute bottom-20 -right-32 w-96 h-96 bg-primary-orange/20 dark:bg-primary-orange/30 rounded-full blur-3xl" />
+        </div>
+
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-5xl md:text-6xl font-bold mb-6">
-            <span className="text-gray-900">Case</span>{" "}
-            <span className="bg-gradient-to-r from-[#00AEEF] to-[#F7931E] bg-clip-text text-transparent">
+            <span className="text-[var(--foreground)]">Case</span>{" "}
+            <span className="gradient-text">
               Studies
             </span>
           </h1>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-xl text-[var(--foreground-secondary)] max-w-3xl mx-auto">
             Real results from real projects. See how we&apos;ve helped businesses achieve their goals
           </p>
         </div>
       </section>
 
       {/* Case Studies */}
-      <section className="py-20">
+      <section className="py-20 bg-[var(--background)]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-20">
           {caseStudies.map((study, index) => (
             <motion.div
@@ -93,10 +97,10 @@ export default function CaseStudiesPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="bg-white rounded-3xl border border-gray-100 overflow-hidden hover:shadow-2xl transition-shadow duration-300"
+              className="bg-[var(--card-bg)] rounded-3xl border border-[var(--card-border)] overflow-hidden hover:shadow-2xl transition-shadow duration-300"
             >
               {/* Header */}
-              <div className="bg-gradient-to-r from-[#00AEEF] to-[#F7931E] p-8 text-white">
+              <div className="bg-gradient-to-r from-primary-blue to-primary-orange p-8 text-white">
                 <div className="flex items-center gap-4 mb-4">
                   <span className="px-4 py-2 bg-white/20 rounded-full text-sm font-semibold">
                     {study.category}
@@ -112,15 +116,15 @@ export default function CaseStudiesPage() {
                   <h3 className="text-xl font-bold mb-3 flex items-center gap-2">
                     <span className="text-red-500">Problem</span>
                   </h3>
-                  <p className="text-gray-600 leading-relaxed">{study.problem}</p>
+                  <p className="text-[var(--foreground-secondary)] leading-relaxed">{study.problem}</p>
                 </div>
 
                 {/* Solution */}
                 <div className="mb-8">
                   <h3 className="text-xl font-bold mb-3 flex items-center gap-2">
-                    <span className="text-blue-500">Solution</span>
+                    <span className="text-primary-blue">Solution</span>
                   </h3>
-                  <p className="text-gray-600 leading-relaxed">{study.solution}</p>
+                  <p className="text-[var(--foreground-secondary)] leading-relaxed">{study.solution}</p>
                 </div>
 
                 {/* Results */}
@@ -132,14 +136,14 @@ export default function CaseStudiesPage() {
                     {study.results.map((result, idx) => (
                       <div
                         key={idx}
-                        className="p-6 bg-gradient-to-br from-gray-50 to-white rounded-2xl border border-gray-100"
+                        className="p-6 bg-[var(--background-secondary)] rounded-2xl border border-[var(--card-border)]"
                       >
-                        <div className="font-semibold text-gray-900 mb-2">{result.metric}</div>
+                        <div className="font-semibold text-[var(--foreground)] mb-2">{result.metric}</div>
                         <div className="flex items-center gap-2 mb-2">
-                          <span className="text-gray-600 line-through text-sm">{result.before}</span>
-                          <span className="text-[#00AEEF] font-bold">{result.after}</span>
+                          <span className="text-[var(--foreground-secondary)] line-through text-sm">{result.before}</span>
+                          <span className="text-primary-blue font-bold">{result.after}</span>
                         </div>
-                        <div className="text-sm font-semibold text-green-600">
+                        <div className="text-sm font-semibold text-green-500">
                           {result.improvement} improvement
                         </div>
                       </div>
@@ -152,7 +156,7 @@ export default function CaseStudiesPage() {
                   {study.tags.map((tag, idx) => (
                     <span
                       key={idx}
-                      className="px-4 py-2 bg-gray-100 text-gray-700 rounded-full text-sm font-medium"
+                      className="px-4 py-2 bg-[var(--background-secondary)] text-[var(--foreground-secondary)] rounded-full text-sm font-medium border border-[var(--card-border)]"
                     >
                       {tag}
                     </span>
@@ -165,7 +169,7 @@ export default function CaseStudiesPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 bg-gradient-to-r from-[#00AEEF] to-[#F7931E]">
+      <section className="py-24 bg-gradient-to-r from-primary-blue to-primary-orange">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
             Ready to Write Your Success Story?
@@ -175,7 +179,7 @@ export default function CaseStudiesPage() {
           </p>
           <a
             href="/contact"
-            className="inline-block px-8 py-4 bg-white text-[#00AEEF] rounded-full font-semibold text-lg hover:shadow-xl hover:scale-105 transition-all duration-300"
+            className="inline-block px-8 py-4 bg-white text-primary-blue rounded-full font-semibold text-lg hover:shadow-xl hover:scale-105 transition-all duration-300"
           >
             Start Your Project
           </a>
@@ -186,4 +190,3 @@ export default function CaseStudiesPage() {
     </main>
   );
 }
-
