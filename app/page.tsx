@@ -6,6 +6,8 @@ import Features from "@/components/Features";
 import Stats from "@/components/Stats";
 import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
+import TechStack from "@/components/TechStack";
+import Process from "@/components/Process";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -42,7 +44,9 @@ export default function Home() {
     <main className="min-h-screen">
       <Hero />
       <Clients />
+      <TechStack />
       <Services />
+      <Process />
       <Capabilities />
       <Features />
       <Stats />
@@ -51,4 +55,5 @@ export default function Home() {
     </main>
   );
 }
+
 

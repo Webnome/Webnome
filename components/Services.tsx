@@ -1,62 +1,62 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Code2, Globe, Smartphone, Cloud, Bot, Shield, Megaphone, Server } from 'lucide-react';
+import { Code2, Globe, Smartphone, Cloud, Bot, Shield, Megaphone, Server, ArrowRight } from 'lucide-react';
 
 const services = [
   {
     icon: Code2,
-    title: 'Custom Software Development',
-    description: 'Tailored solutions designed specifically for your business needs. From concept to deployment, we build scalable applications.',
-    gradient: 'from-primary-blue to-cyan-400'
+    title: 'Custom Software',
+    description: 'Tailored enterprise solutions designed to scale with your business needs.',
+    gradient: 'from-blue-600 to-cyan-500',
+    colSpan: 'md:col-span-2 lg:col-span-2',
+    bg: 'bg-blue-500/5'
   },
   {
     icon: Globe,
-    title: 'Web Application Development',
-    description: 'Modern, responsive web applications built with cutting-edge technologies. Engaging user experiences that drive results.',
-    gradient: 'from-blue-500 to-primary-blue'
+    title: 'Web Development',
+    description: 'High-performance web applications with stunning interactive experiences.',
+    gradient: 'from-indigo-500 to-purple-500',
+    colSpan: 'md:col-span-1 lg:col-span-1',
+    bg: 'bg-indigo-500/5'
   },
   {
     icon: Smartphone,
-    title: 'Mobile App Development',
-    description: 'Native and cross-platform mobile applications for iOS and Android. Apps that users love and businesses rely on.',
-    gradient: 'from-primary-orange to-orange-500'
-  },
-  {
-    icon: Server,
-    title: 'Backend & API Development',
-    description: 'Robust backend systems and RESTful/GraphQL APIs. Scalable architecture that powers your applications.',
-    gradient: 'from-emerald-500 to-teal-500'
-  },
-  {
-    icon: Cloud,
-    title: 'Cloud & IT Infrastructure',
-    description: 'Cloud computing solutions with AWS, Azure, and GCP. Modernize your business with cloud migration and DevOps.',
-    gradient: 'from-purple-500 to-pink-500'
+    title: 'Mobile Apps',
+    description: 'Native and cross-platform apps that users love.',
+    gradient: 'from-orange-500 to-pink-500',
+    colSpan: 'md:col-span-1 lg:col-span-1',
+    bg: 'bg-orange-500/5'
   },
   {
     icon: Bot,
-    title: 'AI & Machine Learning',
-    description: 'Intelligent automation and AI-powered solutions. Transform your business processes with cutting-edge ML.',
-    gradient: 'from-primary-blue to-primary-orange'
+    title: 'AI & ML Solutions',
+    description: 'Intelligent automation and predictive analytics to drive growth.',
+    gradient: 'from-emerald-500 to-teal-500',
+    colSpan: 'md:col-span-1 lg:col-span-1',
+    bg: 'bg-emerald-500/5'
+  },
+  {
+    icon: Cloud,
+    title: 'Cloud Infrastructure',
+    description: 'Secure, scalable cloud architecture and DevOps automation.',
+    gradient: 'from-cyan-500 to-blue-500',
+    colSpan: 'md:col-span-1 lg:col-span-1',
+    bg: 'bg-cyan-500/5'
   },
   {
     icon: Megaphone,
     title: 'Digital Marketing',
-    description: 'Data-driven marketing strategies. SEO, PPC, social media, and content marketing to grow your online presence.',
-    gradient: 'from-pink-500 to-rose-500'
-  },
-  {
-    icon: Shield,
-    title: 'Cybersecurity Solutions',
-    description: 'Protect your digital assets with comprehensive security solutions. Robust measures to keep your data safe.',
-    gradient: 'from-red-500 to-primary-orange'
-  },
+    description: 'Data-driven strategies to amplify your online presence.',
+    gradient: 'from-rose-500 to-red-500',
+    colSpan: 'md:col-span-2 lg:col-span-2',
+    bg: 'bg-rose-500/5'
+  }
 ];
 
 export default function Services() {
   return (
-    <section id="services" className="py-24 bg-[var(--background-secondary)]">
+    <section id="services" className="py-24 bg-[var(--background)] relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <motion.div
@@ -64,61 +64,63 @@ export default function Services() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-20"
         >
-          <span className="inline-flex items-center gap-2 px-4 py-2 mb-4 bg-gradient-to-r from-primary-blue/10 to-primary-orange/10 dark:from-primary-blue/20 dark:to-primary-orange/20 rounded-full border border-[var(--card-border)]">
-            <span className="gradient-text font-semibold text-sm uppercase tracking-wider">
-              Our Services
+          <span className="inline-flex items-center gap-2 px-4 py-2 mb-6 bg-primary-blue/10 rounded-full border border-primary-blue/20">
+            <span className="text-primary-blue font-semibold text-sm uppercase tracking-wider">
+              Our Expertise
             </span>
           </span>
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-[var(--foreground)]">
-            Solutions for Every
-            <span className="gradient-text"> Need</span>
+          <h2 className="text-4xl md:text-6xl font-bold mb-6 text-[var(--foreground)]">
+            Solutions for the
+            <span className="gradient-text"> Digital Age</span>
           </h2>
           <p className="text-xl text-[var(--foreground-secondary)] max-w-2xl mx-auto">
-            Comprehensive software solutions to help your business thrive in the digital age.
+            We combine creativity with technical excellence to deliver products that stand out.
           </p>
         </motion.div>
 
-        {/* Services Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {/* Bento Grid */}
+        <div className="grid md:grid-cols-3 lg:grid-cols-4 gap-6">
           {services.map((service, index) => {
             const Icon = service.icon;
             return (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="group relative p-6 bg-[var(--card-bg)] rounded-2xl border border-[var(--card-border)] hover:border-primary-blue/50 transition-all duration-300 card-hover"
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className={`${service.colSpan} group relative p-8 rounded-3xl bg-[var(--card-bg)] border border-[var(--card-border)] hover:border-transparent transition-all duration-500 overflow-hidden hover:shadow-2xl`}
               >
-                {/* Gradient Background Effect on Hover */}
-                <div className={`absolute inset-0 bg-gradient-to-br ${service.gradient} opacity-0 group-hover:opacity-5 rounded-2xl transition-opacity duration-300`} />
+                {/* Hover Gradient Background */}
+                <div className={`absolute inset-0 bg-gradient-to-br ${service.gradient} opacity-0 group-hover:opacity-10 transition-opacity duration-500`} />
 
-                {/* Icon */}
-                <div className={`w-14 h-14 mb-5 rounded-xl bg-gradient-to-br ${service.gradient} flex items-center justify-center text-white group-hover:scale-110 transition-transform duration-300 shadow-lg`}>
-                  <Icon size={26} strokeWidth={1.5} />
+                {/* Content Container */}
+                <div className="relative z-10 h-full flex flex-col justify-between">
+                  <div>
+                    {/* Icon */}
+                    <div className={`w-16 h-16 rounded-2xl ${service.bg} flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500`}>
+                      <Icon size={32} className="text-[var(--foreground)] group-hover:text-primary-blue transition-colors duration-300" />
+                    </div>
+
+                    <h3 className="text-2xl font-bold mb-4 text-[var(--foreground)]">
+                      {service.title}
+                    </h3>
+                    <p className="text-[var(--foreground-secondary)] leading-relaxed mb-8">
+                      {service.description}
+                    </p>
+                  </div>
+
+                  {/* Action */}
+                  <div className="flex items-center gap-2 text-[var(--foreground)] font-medium group-hover:text-primary-blue transition-colors duration-300">
+                    <span>Learn more</span>
+                    <ArrowRight size={18} className="transform group-hover:translate-x-1 transition-transform duration-300" />
+                  </div>
                 </div>
 
-                {/* Content */}
-                <h3 className="text-lg font-bold mb-3 text-[var(--foreground)] group-hover:text-primary-blue transition-colors duration-300">
-                  {service.title}
-                </h3>
-                <p className="text-sm text-[var(--foreground-secondary)] leading-relaxed">
-                  {service.description}
-                </p>
-
-                {/* Hover Arrow */}
-                <div className="mt-4 flex items-center text-primary-blue opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-x-[-10px] group-hover:translate-x-0">
-                  <span className="text-sm font-medium">Learn more</span>
-                  <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                  </svg>
-                </div>
-
-                {/* Top Gradient Border on Hover */}
-                <div className={`absolute top-0 left-0 right-0 h-1 bg-gradient-to-r ${service.gradient} rounded-t-2xl transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left`} />
+                {/* Decorative Blob */}
+                <div className={`absolute -bottom-10 -right-10 w-40 h-40 bg-gradient-to-br ${service.gradient} rounded-full blur-3xl opacity-0 group-hover:opacity-20 transition-opacity duration-500`} />
               </motion.div>
             );
           })}
@@ -127,3 +129,4 @@ export default function Services() {
     </section>
   );
 }
+
