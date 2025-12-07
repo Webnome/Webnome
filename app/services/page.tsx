@@ -2,75 +2,8 @@
 
 import Footer from "@/components/Footer";
 import { motion } from 'framer-motion';
-import { Code2, Globe, Smartphone, Cloud, Bot, Shield, Megaphone, Server, Palette, Search, PenTool, Layout, Database, Cpu, Lock, BarChart } from 'lucide-react';
-
-const serviceCategories = [
-  {
-    id: "digital-marketing",
-    title: "Digital Marketing",
-    description: "Drive growth and visibility with data-driven marketing strategies. We help you reach your target audience and convert them into loyal customers.",
-    mainIcon: Megaphone,
-    gradient: "from-pink-500 to-rose-500",
-    features: [
-      { title: "SEO Optimization", icon: Search, desc: "Rank higher on search engines" },
-      { title: "Social Media", icon: Globe, desc: "Engage audience on all platforms" },
-      { title: "PPC Advertising", icon: BarChart, desc: "Maximize ROI with paid ads" },
-      { title: "Content Strategy", icon: PenTool, desc: "Compelling storytelling" }
-    ]
-  },
-  {
-    id: "ui-ux",
-    title: "UI/UX Design",
-    description: "Create intuitive, engaging, and beautiful user experiences. We design interfaces that users love and that drive business results.",
-    mainIcon: Palette,
-    gradient: "from-purple-500 to-indigo-500",
-    features: [
-      { title: "User Research", icon: Search, desc: "Deep user insights" },
-      { title: "Interface Design", icon: Layout, desc: "Pixel-perfect UI" },
-      { title: "Prototyping", icon: PenTool, desc: "Interactive mockups" },
-      { title: "Design Systems", icon: Palette, desc: "Consistent branding" }
-    ]
-  },
-  {
-    id: "web-mobile",
-    title: "Web & Mobile Development",
-    description: "Build robust, scalable, and high-performance applications. From native mobile apps to complex web platforms, we deliver excellence.",
-    mainIcon: Code2,
-    gradient: "from-blue-500 to-cyan-500",
-    features: [
-      { title: "Custom Web Apps", icon: Globe, desc: "Scalable web solutions" },
-      { title: "Mobile Apps", icon: Smartphone, desc: "iOS & Android native" },
-      { title: "E-Commerce", icon: Database, desc: "Online store solutions" },
-      { title: "API Integration", icon: Server, desc: "Seamless connectivity" }
-    ]
-  },
-  {
-    id: "ai-data",
-    title: "AI & Data Science",
-    description: "Harness the power of Artificial Intelligence and Machine Learning. Transform your data into actionable insights and automated workflows.",
-    mainIcon: Bot,
-    gradient: "from-emerald-500 to-teal-500",
-    features: [
-      { title: "AI Agents", icon: Bot, desc: "Intelligent automation" },
-      { title: "Predictive Analytics", icon: BarChart, desc: "Future trend forecasting" },
-      { title: "NLP", icon: Cpu, desc: "Language processing" },
-      { title: "Computer Vision", icon: Search, desc: "Image analysis" }
-    ]
-  },
-  {
-    id: "cloud-security",
-    title: "Cloud & Security",
-    description: "Secure your infrastructure and scale with confidence. We provide comprehensive cloud solutions and robust cybersecurity measures.",
-    mainIcon: Cloud,
-    gradient: "from-orange-500 to-red-500",
-    features: [
-      { title: "Cloud Migration", icon: Cloud, desc: "AWS, Azure, GCP" },
-      { title: "DevOps", icon: Server, desc: "CI/CD automation" },
-      { title: "Cybersecurity", icon: Shield, desc: "Threat protection" },
-      { title: "Compliance", icon: Lock, desc: "Regulatory adherence" }
-    ]
-  }
-];
+import Link from 'next/link';
+import { serviceCategories } from "@/data/services";
 
 export default function ServicesPage() {
   return (
@@ -142,15 +75,21 @@ export default function ServicesPage() {
                       {category.features.map((feature, idx) => {
                         const FeatureIcon = feature.icon;
                         return (
-                          <div key={idx} className="flex items-start gap-4 p-4 rounded-xl bg-[var(--card-bg)] border border-[var(--card-border)] hover:border-primary-blue/30 transition-colors">
-                            <div className={`p-2 rounded-lg bg-[var(--background-secondary)] text-[var(--foreground)]`}>
-                              <FeatureIcon size={20} />
+                          <Link
+                            key={idx}
+                            href={`/services/${category.id}/${feature.id}`}
+                            className="block group"
+                          >
+                            <div className="flex items-start gap-4 p-4 rounded-xl bg-[var(--card-bg)] border border-[var(--card-border)] hover:border-primary-blue/30 transition-all hover:shadow-lg hover:-translate-y-1">
+                              <div className={`p-2 rounded-lg bg-[var(--background-secondary)] text-[var(--foreground)] group-hover:text-primary-blue transition-colors`}>
+                                <FeatureIcon size={20} />
+                              </div>
+                              <div>
+                                <h4 className="font-bold text-[var(--foreground)] group-hover:text-primary-blue transition-colors">{feature.title}</h4>
+                                <p className="text-sm text-[var(--foreground-secondary)]">{feature.desc}</p>
+                              </div>
                             </div>
-                            <div>
-                              <h4 className="font-bold text-[var(--foreground)]">{feature.title}</h4>
-                              <p className="text-sm text-[var(--foreground-secondary)]">{feature.desc}</p>
-                            </div>
-                          </div>
+                          </Link>
                         );
                       })}
                     </div>
