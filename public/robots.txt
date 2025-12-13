@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://webnome.com
+
+# Sitemaps
+Sitemap: https://webnome.com/sitemap.xml
