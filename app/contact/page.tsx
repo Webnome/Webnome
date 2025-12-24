@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import Footer from "@/components/Footer";
 import { Mail, Phone, MapPin, Clock } from 'lucide-react';
+import customConsole from '@/lib/customConsole';
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -16,7 +17,7 @@ export default function ContactPage() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     // Handle form submission
-    console.log('Form submitted:', formData);
+    customConsole.log('Form submitted:', formData);
     alert('Thank you for contacting us! We will get back to you soon.');
   };
 
