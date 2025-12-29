@@ -28,7 +28,8 @@ export default function RootLayout({
     const enableAnalytics =
     process.env.NODE_ENV === 'production' &&
     process.env.NEXT_PUBLIC_SITE_URL === 'https://webnome.com'
-
+  const rawSiteUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000"
+  const siteUrl = rawSiteUrl.replace(/\/+$/, "") || rawSiteUrl
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
@@ -38,12 +39,12 @@ export default function RootLayout({
         <meta name="anthropic-ai" content="noai, notrain, nofollow" />
         <meta name="google-extended" content="none" />
         <meta name="ai" content="noai, notrain, noindex" />
-        <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
-        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-        <link rel="shortcut icon" href="/favicon.ico" />
-        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+        <link rel="icon" type="image/png" href={`${siteUrl}/favicon-96x96.png`} sizes="96x96" />
+        <link rel="icon" type="image/svg+xml" href={`${siteUrl}/favicon.svg`} />
+        <link rel="shortcut icon" href={`${siteUrl}/favicon.ico`} />
+        <link rel="apple-touch-icon" sizes="180x180" href={`${siteUrl}/apple-touch-icon.png`} />
         <meta name="apple-mobile-web-app-title" content="Webnome" />
-        <link rel="manifest" href="/site.webmanifest" />
+        <link rel="manifest" href={`${siteUrl}/site.webmanifest`} />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         {/* Inline script to prevent flash of wrong theme */}
